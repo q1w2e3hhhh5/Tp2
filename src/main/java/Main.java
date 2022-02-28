@@ -19,6 +19,19 @@ public class Main {
         employeeService.createClient("Steve", "Rogers");
         employeeService.createClient("Thor", "Son of Odin");
 
+
+      employeeService.createBook("Marvel", 189, "comic", "Stan lee", "Marvel", 2001);
+        System.out.println(employeeService.findAllBooks());
+  /*    employeeService.createDvd("name",2002,"BORROWING TIME LIMIT");
+        employeeService.createCd("name",2003,"BORROWING TIME LIMIT");*/
+
+
+
+       // System.out.println(employeeService.findAllDocuments());
+
+
+
+
         System.out.println(adminService.findEmployeeByRole("Cashier"));
         System.out.println(employeeService.findAllClients());
 

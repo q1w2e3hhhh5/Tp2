@@ -20,7 +20,14 @@ public class Employee {
     private String role;
 
 
-/*    @ManyToMany(mappedBy = "passengerBookings",fetch = FetchType.EAGER)
+    public Employee(long id, String firstName, String lastName, String role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
+    }
+
+    /*    @ManyToMany(mappedBy = "passengerBookings",fetch = FetchType.EAGER)
     private List<Booking> bookings = new ArrayList<>();*/
 
 }
