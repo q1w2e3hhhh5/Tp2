@@ -5,6 +5,8 @@ import model.Employee;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EmployeeDaoJpa implements EmployeeDao {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("library.exe");
@@ -18,5 +20,20 @@ public class EmployeeDaoJpa implements EmployeeDao {
 
         em.getTransaction().commit();
         em.close();
+    }
+
+    @Override
+    public List<Employee> findByRole(String role) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Employee> query = em.createQuery("select p from Employee p where p.role like :nameToSearch", Employee.class);
+        query.setParameter("nameToSearch", "%" + role +"%");
+        final List<Employee> employees = query.getResultList();
+
+        em.getTransaction().commit();
+        em.close();
+
+        return employees;
     }
 }
