@@ -6,5 +6,5 @@ import model.Employee;
 import java.util.List;
 
 public interface DocumentDao {
-    List<Document> findAllDocument();
+    List<Document> findAllDocuments();
 }

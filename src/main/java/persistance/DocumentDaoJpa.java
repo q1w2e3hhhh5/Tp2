@@ -13,7 +13,7 @@ public class DocumentDaoJpa implements DocumentDao{
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("library.exe");
 
     @Override
-    public List<Document> findAllDocument() {
+    public List<Document> findAllDocuments() {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 

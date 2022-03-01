@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         //admin service creates an employee
         AdminService adminService = new AdminService(new EmployeeDaoJpa());
-        EmployeeService employeeService = new EmployeeService(new ClientDaoJpa(), new BookDaoJpa(), new DvdDapJpa(), new CdDaoJpa());
+        EmployeeService employeeService = new EmployeeService(new ClientDaoJpa(), new BookDaoJpa(), new DvdDapJpa(), new CdDaoJpa(),new DocumentDaoJpa());
 
         adminService.createEmployee("James", "Parker", "Cashier");
         adminService.createEmployee("Peter", "Parker", "Cashier");
