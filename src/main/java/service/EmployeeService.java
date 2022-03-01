@@ -63,4 +63,12 @@ public class EmployeeService {
     public List<Document> findAllDocuments() {
         return documentDao.findAllDocuments();
     }
+
+    public List<Document> findBooksByTitle(String title) {
+        return bookDao.findBooksByTitle(title);
+    }
+
+    public List<Document> findBookByAuthor(String author) {
+        return bookDao.findBookByAuthor(author);
+    }
 }

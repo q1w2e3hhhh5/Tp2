@@ -9,4 +9,8 @@ public interface BookDao {
     void save(Book book);
 
     List<Document> findAllBooks();
+
+    List<Document> findBooksByTitle(String title);
+
+    List<Document> findBookByAuthor(String author);
 }
