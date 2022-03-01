@@ -30,9 +30,13 @@ public class Main {
 
 
         //System.out.println(employeeService.findAllBooks());
-        System.out.println(employeeService.findBooksByTitle("d"));
+        //System.out.println(employeeService.findBooksByTitle("d"));
 
-        System.out.println(employeeService.findBookByAuthor("Stan lee"));
+        //System.out.println(employeeService.findBookByAuthor("Stan lee"));
+
+        //System.out.println(employeeService.findBookByYear(2002)); todo this no work
+
+        System.out.println(employeeService.findBooksByGenre("FICTION"));
 
 
  /*

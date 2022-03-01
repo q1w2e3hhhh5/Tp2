@@ -71,4 +71,12 @@ public class EmployeeService {
     public List<Document> findBookByAuthor(String author) {
         return bookDao.findBookByAuthor(author);
     }
+
+    public List<Document> findBookByYear(int year) {
+        return bookDao.findBooksByYear(year);
+    }
+
+    public List<Document> findBooksByGenre(String genre) {
+        return bookDao.findBooksByGenre(genre);
+    }
 }

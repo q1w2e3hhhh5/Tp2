@@ -13,4 +13,8 @@ public interface BookDao {
     List<Document> findBooksByTitle(String title);
 
     List<Document> findBookByAuthor(String author);
+
+    List<Document> findBooksByYear(int year);
+
+    List<Document> findBooksByGenre(String genre);
 }

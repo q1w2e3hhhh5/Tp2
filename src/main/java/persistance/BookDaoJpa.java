@@ -72,4 +72,39 @@ public class BookDaoJpa implements BookDao {
 
         return documents;
     }
+
+    @Override
+    public List<Document> findBooksByYear(int year) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Document> query = em.createQuery("select b from Document b where b.documentType like :typeToSearch " +
+                "AND b.publicationYear = :yearToSearch", Document.class);
+        query.setParameter("typeToSearch", "%" + "Book" +"%");
+        query.setParameter("yearToSearch",  year);
+        final List<Document> documents = query.getResultList();
+
+        em.getTransaction().commit();
+        em.close();
+
+        return documents;
+        //todo why this no work??????????????????????????
+    }
+
+    @Override
+    public List<Document> findBooksByGenre(String genre) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Document> query = em.createQuery("select b from Document b where b.documentType like :typeToSearch " +
+                "AND LOWER(b.type) like :genreToSearch", Document.class);
+        query.setParameter("typeToSearch", "%" + "Book" +"%");
+        query.setParameter("genreToSearch", "%" + genre.toLowerCase() +"%");
+        final List<Document> documents = query.getResultList();
+
+        em.getTransaction().commit();
+        em.close();
+
+        return documents;
+    }
 }
