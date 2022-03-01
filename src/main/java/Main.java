@@ -21,14 +21,14 @@ public class Main {
 
         employeeService.createBook("Marvel", 189, "comic", "Stan lee", "fiction,adventure,action",
                 "Marvel", 2001);
-        //System.out.println(employeeService.findAllBooks());//todo fix : must print full info
 
 
-        employeeService.createDvd("title", 2002, "author", "editor", "genre", 68);
+
+        employeeService.createDvd("Kung fu panda", 2002, "Salah", "disney?", "family", 68);
 
 
-        employeeService.createCd("title", 2002, "author", "editor", "genre", 28);
-
+        employeeService.createCd("Billie Jeans", 2002, "MJ", "MJ", "Good", 28);
+        System.out.println(employeeService.findAllBooks());//todo fix : must print full info
 
         //System.out.println(employeeService.findAllDocuments());
 /*

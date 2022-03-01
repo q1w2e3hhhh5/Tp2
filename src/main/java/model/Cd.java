@@ -14,11 +14,12 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Cd extends Document {
     private int TimeLength; //in min
+    private String documentType = "Cd";
 
 
     @Builder
-    public Cd(long id, String title, int publicationYear, String author, String editor, String genre, int timeLength) {
-        super(id, title, publicationYear, author, editor, genre);
+    public Cd(long id, String title, int publicationYear, String author, String editor, String genre, int timeLength,String documentType) {
+        super(id, title, publicationYear, author, editor, genre, documentType);
         TimeLength = timeLength;
     }
 

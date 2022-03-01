@@ -8,4 +8,5 @@ public interface EmployeeDao {
     void save(Employee employee);
 
     List<Employee> findByRole(String role);
+
 }

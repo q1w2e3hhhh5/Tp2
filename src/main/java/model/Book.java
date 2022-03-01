@@ -19,15 +19,17 @@ public class Book extends Document {
 
     @Builder
     public Book(long id, String title, int publicationYear, String author, String editor,
-                String genre, int nbPages, String type) {
-        super(id, title, publicationYear, author, editor, genre);
+                String genre, int nbPages, String type, String documentType) {
+        super(id, title, publicationYear, author, editor, genre,documentType);
         this.nbPages = nbPages;
         this.type = type;
     }
 
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "nbPages=" + nbPages +
+                ", type='" + type + '\'' +
+                "} " + super.toString();
+    }
 }

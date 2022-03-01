@@ -29,25 +29,25 @@ public class EmployeeService {
 
     public void createBook(String title, int nbPages, String type, String author,String genre, String editor, int publicationYear) {
         Book book = Book.builder().title(title).nbPages(nbPages).type(type).genre(genre).author(author)
-                .editor(editor).publicationYear(publicationYear).build();
+                .editor(editor).publicationYear(publicationYear).documentType("Book").build();
         bookDao.save(book);
     }
 
-    public List<Book> findAllBooks() {
+    public List<Document> findAllBooks() {
         return bookDao.findAllBooks();
     }
 
 
     public void createDvd(String title, int publicationYear, String author, String editor, String genre, int timeLength) {
         Dvd dvd = Dvd.builder().title(title).publicationYear(publicationYear).author(author).editor(editor).genre(genre)
-                .timeLength(timeLength).build();
+                .timeLength(timeLength).documentType("Dvd").build();
         dvdDao.save(dvd);
 
     }
 
     public void createCd(String title, int publicationYear, String author, String editor, String genre, int timeLength) {
         Cd cd = Cd.builder().title(title).publicationYear(publicationYear).author(author).editor(editor).genre(genre)
-                .timeLength(timeLength).build();
+                .timeLength(timeLength).documentType("Cd").build();
         cdDao.save(cd);
     }
 }

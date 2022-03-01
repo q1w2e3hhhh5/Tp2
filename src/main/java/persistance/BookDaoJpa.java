@@ -1,7 +1,7 @@
 package persistance;
 
 import model.Book;
-import model.Client;
+import model.Document;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class BookDaoJpa implements BookDao{
+public class BookDaoJpa implements BookDao {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("library.exe");
 
@@ -18,24 +18,29 @@ public class BookDaoJpa implements BookDao{
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        em.persist(book);
+        em.persist(book);       //TODO I saved book, but it inserted it in document, why?
 
         em.getTransaction().commit();
         em.close();
     }
 
     @Override
-    public List<Book> findAllBooks() {
+    public List<Document> findAllBooks() {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        final TypedQuery<Book> query = em.createQuery("select b from Document b", Book.class);
-        final List<Book> books = query.getResultList();
+        final TypedQuery<Document> query = em.createQuery("select b from Document b where b.documentType like :typeToSearch", Document.class);
+        query.setParameter("typeToSearch", "%" + "Book" +"%");
+        final List<Document> documents = query.getResultList();
 
         em.getTransaction().commit();
         em.close();
 
-        return books;
-
+        return documents;
     }
 }
+/*
+        final TypedQuery<Passenger> query = em.createQuery("select p from Passenger p where p.name like :nameToSearch", Passenger.class);
+        query.setParameter("nameToSearch", "%" + name +"%");
+        final List<Passenger> passengers = query.getResultList();
+*/

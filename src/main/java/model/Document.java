@@ -18,12 +18,12 @@ public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     private String title;
     private int publicationYear;
     private String author;  //can it be author for dvd and cd?
     private String editor;
     private String genre;   //rock nd roll, adventure, fiction, poetry
+    private String documentType;
 
 
 

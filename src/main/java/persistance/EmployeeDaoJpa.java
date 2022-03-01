@@ -2,10 +2,7 @@ package persistance;
 
 import model.Employee;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 public class EmployeeDaoJpa implements EmployeeDao {
@@ -36,4 +33,5 @@ public class EmployeeDaoJpa implements EmployeeDao {
 
         return employees;
     }
+
 }

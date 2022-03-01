@@ -14,10 +14,11 @@ import javax.persistence.Entity;
 public class Dvd extends Document {
 
     private int TimeLength; //in min
+    private String documentType = "Dvd";
 
     @Builder
-    public Dvd(long id, String title, int publicationYear, String author, String editor, String genre, int timeLength) {
-        super(id, title, publicationYear, author, editor, genre);
+    public Dvd(long id, String title, int publicationYear, String author, String editor, String genre, int timeLength,String documentType) {
+        super(id, title, publicationYear, author, editor, genre,documentType);
         this.TimeLength = timeLength;
     }
 
