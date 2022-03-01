@@ -14,7 +14,6 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Cd extends Document {
     private int TimeLength; //in min
-    private String documentType = "Cd";
 
 
     @Builder
@@ -23,4 +22,9 @@ public class Cd extends Document {
         TimeLength = timeLength;
     }
 
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "\t\t" + "Time Length : " + TimeLength + "\n";
+    }
 }

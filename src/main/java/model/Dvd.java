@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import java.sql.Time;
 
 @Entity
 @Data
@@ -14,7 +15,6 @@ import javax.persistence.Entity;
 public class Dvd extends Document {
 
     private int TimeLength; //in min
-    private String documentType = "Dvd";
 
     @Builder
     public Dvd(long id, String title, int publicationYear, String author, String editor, String genre, int timeLength,String documentType) {
@@ -22,4 +22,11 @@ public class Dvd extends Document {
         this.TimeLength = timeLength;
     }
 
+
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\t\t" + "Time Length : " + TimeLength + "\n";
+    }
 }

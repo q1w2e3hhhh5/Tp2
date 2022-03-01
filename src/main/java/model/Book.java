@@ -27,9 +27,9 @@ public class Book extends Document {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "nbPages=" + nbPages +
-                ", type='" + type + '\'' +
-                "} " + super.toString();
+        return super.toString() +
+                "\t\t" + "Number of Pages : " + nbPages + "\n" +
+                "\t\t" + "Type : " + type + "\n";
     }
 }
+

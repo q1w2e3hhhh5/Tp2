@@ -39,8 +39,3 @@ public class BookDaoJpa implements BookDao {
         return documents;
     }
 }
-/*
-        final TypedQuery<Passenger> query = em.createQuery("select p from Passenger p where p.name like :nameToSearch", Passenger.class);
-        query.setParameter("nameToSearch", "%" + name +"%");
-        final List<Passenger> passengers = query.getResultList();
-*/
