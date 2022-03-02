@@ -16,5 +16,5 @@ public interface BookDao {
 
     List<Document> findBooksByYear(int year);
 
-    List<Document> findBooksByGenre(String genre);
+    List<Document> findBooksByType(String genre);
 }

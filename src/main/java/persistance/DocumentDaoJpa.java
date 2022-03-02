@@ -1,6 +1,7 @@
 package persistance;
 
 import model.Document;
+import model.Employee;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -24,5 +25,25 @@ public class DocumentDaoJpa implements DocumentDao{
         em.close();
 
         return documents;
+    }
+
+    @Override
+    public void borrowDocumentById(long id) {
+//
+    }
+
+    @Override
+    public Document findDocumentById(long id) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Document> query = em.createQuery("select d from Document d where d.id = :documentToSearch", Document.class);
+        query.setParameter("documentToSearch",  id );
+        final Document document = query.getSingleResult();
+
+        em.getTransaction().commit();
+        em.close();
+
+        return document;
     }
 }

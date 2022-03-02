@@ -76,7 +76,15 @@ public class EmployeeService {
         return bookDao.findBooksByYear(year);
     }
 
-    public List<Document> findBooksByGenre(String genre) {
-        return bookDao.findBooksByGenre(genre);
+    public List<Document> findBooksByType(String genre) {
+        return bookDao.findBooksByType(genre);
+    }
+
+    public Document findDocumentById(long i) {
+        return documentDao.findDocumentById(i);
+    }
+
+    public Client findClientById(long i) {
+        return clientDao.findClientById(i);
     }
 }

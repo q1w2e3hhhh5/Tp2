@@ -1,13 +1,12 @@
-import model.Employee;
+import model.*;
 import persistance.*;
-import service.AdminService;
-import service.EmployeeService;
+import service.*;
 
 public class Main {
     public static void main(String[] args) {
-        //admin service creates an employee
         AdminService adminService = new AdminService(new EmployeeDaoJpa());
         EmployeeService employeeService = new EmployeeService(new ClientDaoJpa(), new BookDaoJpa(), new DvdDapJpa(), new CdDaoJpa(), new DocumentDaoJpa());
+        ClientService clientService = new ClientService(new DocumentDaoJpa(), new BorrowDaoJpa());
 
         adminService.createEmployee("James", "Parker", "Cashier");
         adminService.createEmployee("Peter", "Parker", "Cashier");
@@ -29,14 +28,30 @@ public class Main {
         employeeService.createCd("Billie Jeans", 2002, "MJ", "MJ", "Good", 28);
 
 
-        //System.out.println(employeeService.findAllBooks());
-        //System.out.println(employeeService.findBooksByTitle("d"));
+        System.out.println(employeeService.findAllBooks());
+        System.out.println(employeeService.findBooksByTitle("d"));
 
-        //System.out.println(employeeService.findBookByAuthor("Stan lee"));
+        System.out.println(employeeService.findBookByAuthor("Stan lee"));
 
-        //System.out.println(employeeService.findBookByYear(2002)); todo this no work
+        //System.out.println(employeeService.findBookByYear(2002)); //todo this no work
 
-        System.out.println(employeeService.findBooksByGenre("FICTION"));
+        System.out.println(employeeService.findBooksByType("FICTION"));
+
+
+
+        clientService.borrowDocumentById(2);
+
+
+        //todo could be and should be optimized
+        System.out.println(employeeService.findDocumentById(7));
+        System.out.println( employeeService.findClientById(4));
+        clientService.createBorrow(employeeService.findClientById(4),(employeeService.findDocumentById(7)));
+        clientService.createBorrow(employeeService.findClientById(4),(employeeService.findDocumentById(8)));
+        clientService.createBorrow(employeeService.findClientById(4),(employeeService.findDocumentById(9)));
+        clientService.createBorrow(employeeService.findClientById(4),(employeeService.findDocumentById(10)));
+        clientService.createBorrow(employeeService.findClientById(5),(employeeService.findDocumentById(13)));
+        clientService.createBorrow(employeeService.findClientById(5),(employeeService.findDocumentById(12)));
+        clientService.createBorrow(employeeService.findClientById(6),(employeeService.findDocumentById(11)));
 
 
  /*

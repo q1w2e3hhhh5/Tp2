@@ -92,14 +92,14 @@ public class BookDaoJpa implements BookDao {
     }
 
     @Override
-    public List<Document> findBooksByGenre(String genre) {
+    public List<Document> findBooksByType(String type) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
         final TypedQuery<Document> query = em.createQuery("select b from Document b where b.documentType like :typeToSearch " +
                 "AND LOWER(b.type) like :genreToSearch", Document.class);
         query.setParameter("typeToSearch", "%" + "Book" +"%");
-        query.setParameter("genreToSearch", "%" + genre.toLowerCase() +"%");
+        query.setParameter("genreToSearch", "%" + type.toLowerCase() +"%");
         final List<Document> documents = query.getResultList();
 
         em.getTransaction().commit();

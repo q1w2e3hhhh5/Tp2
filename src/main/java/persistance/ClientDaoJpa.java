@@ -1,6 +1,7 @@
 package persistance;
 
 import model.Client;
+import model.Document;
 import model.Employee;
 
 import javax.persistence.EntityManager;
@@ -35,5 +36,20 @@ public class ClientDaoJpa implements ClientDao{
         em.close();
 
         return clients;
+    }
+
+    @Override
+    public Client findClientById(long id) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        final TypedQuery<Client> query = em.createQuery("select c from Client c where c.id = :clientToSearch", Client.class);
+        query.setParameter("clientToSearch",  id );
+        final Client client = query.getSingleResult();
+
+        em.getTransaction().commit();
+        em.close();
+
+        return client;
     }
 }
